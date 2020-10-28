@@ -1,0 +1,59 @@
+{
+  "name": "semanggi",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "prepare-env":"cp ./src/configs/env.$CONF.js ./src/env.js",
+    
+    "android-dev": "CONF=dev yarn prepare-env && react-native run-android",
+    "android-prod": "CONF=prod yarn prepare-env && react-native run-android",
+
+    "android-release": "react-native run-android --variant=release",
+    "android-build": "cd android && ./gradlew bundleRelease && cd ..",
+
+    "ios": "react-native run-ios --simulator='iPhone 8'",
+    "ios-release": "react-native run-ios --configuration Release",
+    "reload":"rm -rf node_modules && yarn install",
+    "start": "react-native start",
+    "test": "jest",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@react-native-community/async-storage": "^1.12.0",
+    "@react-native-community/masked-view": "^0.1.10",
+    "@react-native-community/toolbar-android": "^0.1.0-rc.2",
+    "@react-navigation/bottom-tabs": "^5.9.0",
+    "@react-navigation/native": "^5.7.4",
+    "@react-navigation/stack": "^5.9.1",
+    "axios": "^0.20.0",
+    "moment": "^2.29.0",
+    "react": "16.13.1",
+    "react-native": "0.63.3",
+    "react-native-gesture-handler": "^1.8.0",
+    "react-native-reanimated": "^1.13.1",
+    "react-native-safe-area-context": "^3.1.8",
+    "react-native-screens": "^2.11.0",
+    "react-native-snackbar": "^2.2.3",
+    "react-native-snap-carousel": "^3.9.1",
+    "react-native-tailwindcss": "^1.1.10",
+    "react-native-vector-icons": "^7.1.0",
+    "react-redux": "^7.2.1",
+    "redux": "^4.0.5",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-persist": "^6.0.0",
+    "redux-thunk": "^2.3.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.4",
+    "@babel/runtime": "^7.8.4",
+    "@react-native-community/eslint-config": "^1.1.0",
+    "babel-jest": "^25.1.0",
+    "eslint": "^6.5.1",
+    "jest": "^25.1.0",
+    "metro-react-native-babel-preset": "^0.59.0",
+    "react-test-renderer": "16.13.1"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
