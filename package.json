@@ -5,11 +5,15 @@
   "scripts": {
     "prepare-env":"cp ./src/configs/env.$CONF.js ./src/env.js",
     
-    "android-dev": "CONF=dev yarn prepare-env && react-native run-android",
-    "android-prod": "CONF=prod yarn prepare-env && react-native run-android",
+    "debug-dev": "CONF=dev yarn prepare-env && react-native run-android",
+    "debug-prod": "CONF=prod yarn prepare-env && react-native run-android",
 
-    "android-release": "react-native run-android --variant=release",
-    "android-build": "cd android && ./gradlew bundleRelease && cd ..",
+    "release-dev": "CONF=dev yarn prepare-env && react-native run-android --variant=release",
+    "release-prod": "CONF=prod yarn prepare-env && react-native run-android --variant=release",
+    
+    "build-dev": "CONF=dev yarn prepare-env && cd android && ./gradlew bundleRelease && cd ..",
+    "build-prod": "CONF=prod yarn prepare-env && cd android && ./gradlew bundleRelease && cd ..",
+    
 
     "ios": "react-native run-ios --simulator='iPhone 8'",
     "ios-release": "react-native run-ios --configuration Release",
