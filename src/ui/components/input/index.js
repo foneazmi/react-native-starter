@@ -1,7 +1,7 @@
-import React from "react";
-import { View, StyleSheet, TextInput, Platform } from "react-native";
-import { color } from "react-native-tailwindcss";
-import Icon from "react-native-vector-icons/Feather";
+import React from 'react';
+import {View, StyleSheet, TextInput, Platform} from 'react-native';
+import {color} from 'react-native-tailwindcss';
+import Icon from 'react-native-vector-icons/Feather';
 
 export const InputSearch = (props) => (
   <View style={styles.container}>
@@ -18,14 +18,14 @@ export const Input = (props) => (
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
     borderColor: color.green900,
     borderWidth: 1,
     backgroundColor: color.green100,
     paddingHorizontal: 10,
     borderRadius: 10,
-    paddingVertical: Platform.OS === "ios" ? 10 : 0,
+    paddingVertical: Platform.OS === 'ios' ? 10 : 0,
   },
   pv: {
     paddingVertical: 10,
@@ -34,6 +34,6 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   ffp: {
-    fontFamily: "Poppins-Regular",
+    fontFamily: 'Poppins-Regular',
   },
 });

@@ -1,7 +1,5 @@
-import { FocusAwareStatusBar as StatusBar } from "./statusBar";
-import { Header, TitleHeader } from "./header";
-import { Input, InputSearch } from "./input";
-import { Loader } from "./loader";
-import { Pages } from "./pages";
-
-export { StatusBar, TitleHeader, Header, Input, InputSearch, Loader, Pages };
+export * from './statusBar';
+export * from './header';
+export * from './input';
+export * from './loader';
+export * from './pages';

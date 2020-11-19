@@ -9,7 +9,7 @@ import {useDispatch} from 'react-redux';
 import {end} from '@stores/global/actions';
 import {APPNAME} from '@root/env';
 
-const SplashPage = () => {
+export const SplashPage = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(end());
@@ -31,5 +31,3 @@ const SplashPage = () => {
     </Pages>
   );
 };
-
-export default SplashPage;

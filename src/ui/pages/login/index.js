@@ -8,7 +8,7 @@ import {navigator} from '@services';
 
 import {APPNAME} from '@root/env';
 
-const LoginPage = () => {
+export const LoginPage = () => {
   const {loading} = useSelector((state) => state.globalReducer);
   const dispatch = useDispatch();
 
@@ -55,5 +55,3 @@ const LoginPage = () => {
     </Pages>
   );
 };
-
-export default LoginPage;

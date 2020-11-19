@@ -7,7 +7,7 @@ import {styles} from './styles';
 import {navigator} from '@services';
 import {APPNAME} from '@root/env';
 
-const RegisterPage = () => {
+export const RegisterPage = () => {
   const {loading} = useSelector((state) => state.globalReducer);
   const dispatch = useDispatch();
 
@@ -81,5 +81,3 @@ const RegisterPage = () => {
     </Pages>
   );
 };
-
-export default RegisterPage;
