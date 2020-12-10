@@ -1,57 +1,29 @@
 import React, {useState} from 'react';
 import {View, Text, ScrollView, TouchableOpacity} from 'react-native';
 import {Pages, Input} from '@components';
-import {register} from '@stores/global/actions';
+import {login} from '@stores/global/actions';
 import {useSelector, useDispatch} from 'react-redux';
 import {styles} from './styles';
 import {navigator} from '@services';
+
 import {APPNAME} from '@root/env';
 
-export const RegisterPage = () => {
+export const LoginScreen = () => {
   const {loading} = useSelector((state) => state.globalReducer);
   const dispatch = useDispatch();
 
   const [email, setEmail] = useState('');
-  const [name, setName] = useState('');
-  const [username, setUsername] = useState('');
-  const [telp, setTelp] = useState('');
   const [password, setPassword] = useState('');
 
-  const submitRegister = () => {
-    dispatch(
-      register({email, password, name, username, telp, c_password: password}),
-    );
+  const submitLogin = () => {
+    dispatch(login({email, password}));
   };
 
   return (
-    <Pages
-      dark
-      isLoading={loading}
-      barColor="white"
-      pagesStyle={styles.pagesStyle}>
+    <Pages dark isLoading={loading} barColor="white">
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.loginContainer}>
           <Text style={styles.brandName}>{APPNAME}</Text>
-
-          <Input
-            placeholder="Nama"
-            inputStyle={styles.mb10}
-            onChangeText={(e) => setName(e)}
-            value={name}
-          />
-          <Input
-            placeholder="Username"
-            inputStyle={styles.mb10}
-            onChangeText={(e) => setUsername(e)}
-            value={username}
-          />
-          <Input
-            placeholder="Telp"
-            keyboardType="numeric"
-            inputStyle={styles.mb10}
-            onChangeText={(e) => setTelp(e)}
-            value={telp}
-          />
           <Input
             placeholder="Email"
             keyboardType="email-address"
@@ -66,14 +38,16 @@ export const RegisterPage = () => {
             onChangeText={(e) => setPassword(e)}
             value={password}
           />
-          <TouchableOpacity onPress={submitRegister} style={styles.button}>
-            <Text style={styles.buttonText}>Register</Text>
+          <TouchableOpacity onPress={submitLogin} style={styles.button}>
+            <Text style={styles.buttonText}>Login</Text>
           </TouchableOpacity>
           <Text style={styles.text1}>
-            Already have an account ?
-            <Text style={styles.text2} onPress={() => navigator.reset('login')}>
+            Dont’t have an account ?
+            <Text
+              style={styles.text2}
+              onPress={() => navigator.navigate('register')}>
               {' '}
-              Login
+              Register
             </Text>
           </Text>
         </View>

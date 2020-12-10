@@ -9,7 +9,7 @@ import {useDispatch} from 'react-redux';
 import {end} from '@stores/global/actions';
 import {APPNAME} from '@root/env';
 
-export const SplashPage = () => {
+export const SplashScreen = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(end());

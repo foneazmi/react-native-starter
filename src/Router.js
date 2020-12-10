@@ -7,16 +7,16 @@ import {navigationRef} from '@services';
 // import { color } from "react-native-tailwindcss";
 
 import {
-  SplashPage,
-  // HomePage,
-  // SearchPage,
-  // DetailPage,
-  // FeedPage,
-  // NotificationPage,
-  // ProfilePage,
-  LoginPage,
-  RegisterPage,
-} from '@pages';
+  SplashScreen,
+  // HomeScreen,
+  // SearchScreen,
+  // DetailScreen,
+  // FeedScreen,
+  // NotificationScreen,
+  // ProfileScreen,
+  LoginScreen,
+  RegisterScreen,
+} from '@screens';
 
 // import Icon from "react-native-vector-icons/Feather";
 
@@ -34,7 +34,7 @@ const Stack = createStackNavigator();
 //     >
 //       <Tab.Screen
 //         name="home"
-//         component={HomePage}
+//         component={HomeScreen}
 //         options={{
 //           tabBarLabel: "Home",
 //           tabBarIcon: (e) => <Icon name="home" size={20} color={e.color} />,
@@ -42,7 +42,7 @@ const Stack = createStackNavigator();
 //       />
 //       {/* <Tab.Screen
 //         name="search"
-//         component={SearchPage}
+//         component={SearchScreen}
 //         options={{
 //           tabBarLabel: 'Search',
 //           tabBarIcon: (e) => <Icon name="search" size={20} color={e.color} />,
@@ -50,7 +50,7 @@ const Stack = createStackNavigator();
 //       /> */}
 //       <Tab.Screen
 //         name="feed"
-//         component={FeedPage}
+//         component={FeedScreen}
 //         options={{
 //           tabBarLabel: "Feed",
 //           tabBarIcon: (e) => <Icon name="layout" size={20} color={e.color} />,
@@ -58,7 +58,7 @@ const Stack = createStackNavigator();
 //       />
 //       <Tab.Screen
 //         name="notification"
-//         component={NotificationPage}
+//         component={NotificationScreen}
 //         options={{
 //           tabBarLabel: "Notification",
 //           tabBarIcon: (e) => <Icon name="bell" size={20} color={e.color} />,
@@ -66,7 +66,7 @@ const Stack = createStackNavigator();
 //       />
 //       {/* <Tab.Screen
 //         name="chat"
-//         component={ProfilePage}
+//         component={ProfileScreen}
 //         options={{
 //           tabBarLabel: 'Chat',
 //           tabBarIcon: (e) => (
@@ -76,7 +76,7 @@ const Stack = createStackNavigator();
 //       /> */}
 //       <Tab.Screen
 //         name="profile"
-//         component={ProfilePage}
+//         component={ProfileScreen}
 //         options={{
 //           tabBarLabel: "Profile",
 //           tabBarIcon: (e) => <Icon name="user" size={20} color={e.color} />,
@@ -93,12 +93,12 @@ const Routers = () => {
         screenOptions={{
           headerShown: false,
         }}>
-        <Stack.Screen name="splash" component={SplashPage} />
-        <Stack.Screen name="login" component={LoginPage} />
-        <Stack.Screen name="register" component={RegisterPage} />
+        <Stack.Screen name="splash" component={SplashScreen} />
+        <Stack.Screen name="login" component={LoginScreen} />
+        <Stack.Screen name="register" component={RegisterScreen} />
         {/* <Stack.Screen name="dashboard" component={Dashboard} /> */}
-        {/* <Stack.Screen name="detail" component={DetailPage} /> */}
-        {/* <Stack.Screen name="search" component={SearchPage} /> */}
+        {/* <Stack.Screen name="detail" component={DetailScreen} /> */}
+        {/* <Stack.Screen name="search" component={SearchScreen} /> */}
       </Stack.Navigator>
     </NavigationContainer>
   );
