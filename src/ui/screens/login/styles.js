@@ -1,10 +1,10 @@
-import { StyleSheet } from "react-native";
-import { color, t } from "react-native-tailwindcss";
+import {StyleSheet} from 'react-native';
+import {color, t} from 'react-native-tailwindcss';
 // import { fullWidth, fullHeight } from "@helpers";
 
 export const styles = StyleSheet.create({
   brandName: {
-    fontFamily: "Poppins-Regular",
+    fontFamily: 'Poppins-Regular',
     marginVertical: 10,
     fontSize: 26,
   },
@@ -14,24 +14,24 @@ export const styles = StyleSheet.create({
   },
   button: {
     borderRadius: 8,
-    overflow: "hidden",
+    overflow: 'hidden',
   },
   buttonText: {
     paddingVertical: 10,
-    textAlign: "center",
-    color: "white",
+    textAlign: 'center',
+    color: 'white',
     backgroundColor: color.green500,
-    fontFamily: "Poppins-Regular",
+    fontFamily: 'Poppins-Regular',
   },
   mb10: {
     marginBottom: 10,
   },
   text1: {
     marginVertical: 10,
-    textAlign: "right",
-    fontFamily: "Poppins-Regular",
+    textAlign: 'right',
+    fontFamily: 'Poppins-Regular',
   },
   text2: {
-    fontFamily: "Poppins-Medium",
+    fontFamily: 'Poppins-Medium',
   },
 });

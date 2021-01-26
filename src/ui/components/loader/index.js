@@ -27,8 +27,8 @@ const inStyle = StyleSheet.create({
     alignItems: 'center',
     position: 'absolute',
     backgroundColor: 'rgba(52, 52, 52, 0.8)',
-    width: fullWidth,
-    height: fullHeight * 2,
+    width: fullWidth(),
+    height: fullHeight() * 2,
   },
   indicatorText: {
     fontFamily: 'Poppins-Regular',
