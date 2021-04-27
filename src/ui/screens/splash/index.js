@@ -1,33 +1,43 @@
 import React, {useEffect} from 'react';
-import {Text, ActivityIndicator} from 'react-native';
-import {color} from 'react-native-tailwindcss';
-import {Pages} from '@components';
-import {navigator} from '@services';
-import {styles} from './styles';
-import {getAuth} from '@helpers';
+import {View, StyleSheet, Text} from 'react-native';
+import {StatusBar} from '@components';
+// import {navigator} from '@services';
 import {useDispatch} from 'react-redux';
-import {end} from '@stores/global/actions';
-import {APPNAME} from '@root/env';
+import {end} from '@actions';
 
 export const SplashScreen = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(end());
     const timer = setTimeout(async () => {
-      let token = await getAuth();
-      if (token) {
-        navigator.reset('dashboard');
-      } else {
-        navigator.reset('login');
-      }
+      // navigator.reset('dashboard');
     }, 1000);
     return () => clearTimeout(timer);
   }, [dispatch]);
 
   return (
-    <Pages barColor={color.green700} pagesStyle={styles.pagesStyle}>
-      <Text style={styles.brand}>{APPNAME}</Text>
-      <ActivityIndicator size="large" color={color.green100} />
-    </Pages>
+    <>
+      <StatusBar
+        backgroundColor="white"
+        barStyle="dark-content"
+        showHideTransition="slide"
+      />
+      <View style={styles.container}>
+        <Text>Starter</Text>
+      </View>
+    </>
   );
 };
+
+export const styles = StyleSheet.create({
+  container: {
+    backgroundColor: 'white',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flex: 1,
+  },
+  logo1: {
+    height: 200,
+    width: 200,
+  },
+});

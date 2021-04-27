@@ -2,9 +2,8 @@ import {createStore, applyMiddleware, combineReducers} from 'redux';
 import {persistStore, persistReducer} from 'redux-persist';
 import ReduxThunk from 'redux-thunk';
 import {composeWithDevTools} from 'redux-devtools-extension';
-import AsyncStorage from '@react-native-community/async-storage';
-
-import GlobalReducer from '@stores/global/reducer';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import {globalReducer} from '@reducers';
 
 const persistConfig = {
   key: 'root',
@@ -19,7 +18,7 @@ const globalPersistConfig = {
 
 const rootReducer = combineReducers({
   defaultReducer: () => [],
-  globalReducer: persistReducer(globalPersistConfig, GlobalReducer),
+  globalReducer: persistReducer(globalPersistConfig, globalReducer),
 });
 
 const reducer = persistReducer(persistConfig, rootReducer);

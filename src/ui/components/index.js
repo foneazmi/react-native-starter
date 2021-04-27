@@ -1,5 +1,5 @@
-export * from './statusBar';
+export * from './bottomnavbar';
 export * from './header';
 export * from './input';
 export * from './loader';
-export * from './pages';
+export * from './statusbar';

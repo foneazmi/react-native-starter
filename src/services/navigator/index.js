@@ -6,7 +6,7 @@ const navigate = (name, params) => {
   navigationRef.current?.navigate(name, params);
 };
 
-const reset = (name) => {
+const reset = name => {
   navigationRef.current?.resetRoot({
     index: 0,
     routes: [{name: name}],

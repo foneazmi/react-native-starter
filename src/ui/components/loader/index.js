@@ -1,14 +1,13 @@
 import React from 'react';
 import {StyleSheet, View, ActivityIndicator, Text} from 'react-native';
-import {fullWidth, fullHeight} from '@helpers';
-import {color} from 'react-native-tailwindcss';
+import {width, height} from '@helpers';
 
 export const Loader = ({isLoading}) => {
   return isLoading ? (
     <View style={inStyle.container}>
       <View style={inStyle.loader}>
         <Text style={inStyle.indicatorText}>Please wait</Text>
-        <ActivityIndicator size="large" color={color.red100} />
+        <ActivityIndicator size="large" color="white" />
       </View>
     </View>
   ) : (
@@ -19,7 +18,7 @@ export const Loader = ({isLoading}) => {
 const inStyle = StyleSheet.create({
   loader: {
     position: 'absolute',
-    top: fullHeight / 2,
+    top: height / 2,
   },
   container: {
     zIndex: 99,
@@ -27,12 +26,11 @@ const inStyle = StyleSheet.create({
     alignItems: 'center',
     position: 'absolute',
     backgroundColor: 'rgba(52, 52, 52, 0.8)',
-    width: fullWidth(),
-    height: fullHeight() * 2,
+    width: width,
+    height: height * 2,
   },
   indicatorText: {
-    fontFamily: 'Poppins-Regular',
-    color: color.red100,
+    color: 'white',
     fontSize: 18,
   },
 });

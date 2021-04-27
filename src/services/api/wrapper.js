@@ -1,16 +1,15 @@
-import {getAuth, clearStorage} from '@helpers';
-
 import axios from 'axios';
 import {BASEURL} from '@root/env';
 import {navigator} from '@services';
+import {getToken, clearStorage} from '@helpers';
 import {Alert} from 'react-native';
 
-const request = async (options) => {
+const request = async options => {
   const client = axios.create({
     baseURL: BASEURL,
   });
 
-  const token = await getAuth();
+  const token = await getToken();
   if (token && options.data && options.data.type === 'file') {
     options.options.headers = {
       Authorization: 'Bearer ' + token,
@@ -28,11 +27,11 @@ const request = async (options) => {
     };
   }
 
-  const onSuccess = (response) => {
+  const onSuccess = response => {
     return response.data;
   };
 
-  const onError = (error) => {
+  const onError = error => {
     if (error.response) {
       if (
         error.response.status === 422 &&
