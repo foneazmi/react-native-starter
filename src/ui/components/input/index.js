@@ -2,19 +2,14 @@ import React, {useState} from 'react';
 import {TextInput, View, Text, StyleSheet} from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 import {colors} from '@helpers';
+
 export const Input = props => {
   const [show, setShow] = useState(false);
   const [focus, setFocus] = useState(false);
   return (
     <View style={[{marginBottom: 16}, props.containerStyle]}>
       {props.title && (
-        <Text
-          style={[
-            {marginBottom: 4, fontFamily: 'Poppins-Regular'},
-            props.titleStyle,
-          ]}>
-          {props.title}
-        </Text>
+        <Text style={[{marginBottom: 4}, props.titleStyle]}>{props.title}</Text>
       )}
       <View
         style={[
@@ -41,7 +36,6 @@ export const Input = props => {
           onBlur={() => setFocus(false)}
           secureTextEntry={!show && props.secureTextEntry}
           style={{
-            fontFamily: 'Poppins-Regular',
             flex: 1,
             marginBottom: -3,
           }}
@@ -70,7 +64,6 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   header: {
-    fontFamily: 'Poppins-Bold',
     fontSize: 40,
     textAlign: 'center',
     marginBottom: 20,
