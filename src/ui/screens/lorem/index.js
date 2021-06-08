@@ -2,7 +2,7 @@ import React from 'react';
 import {Layout, StatusBar} from '@components';
 import {styles} from './styles';
 import {Text} from 'react-native';
-export const ProfileScreen = () => {
+export const LoremScreen = () => {
   return (
     <Layout
       style={styles.container}
@@ -13,7 +13,7 @@ export const ProfileScreen = () => {
           showHideTransition="slide"
         />
       }>
-      <Text>ProfileScreen</Text>
+      <Text>LoremScreen</Text>
     </Layout>
   );
 };

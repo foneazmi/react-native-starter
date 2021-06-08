@@ -2,7 +2,7 @@ import React from 'react';
 import {Layout, AppBar, Input} from '@components';
 import {styles} from './styles';
 import {colors} from '@helpers';
-import {StatusBar} from 'react-native';
+import {StatusBar, Text} from 'react-native';
 export const HomeScreen = () => {
   return (
     <Layout
@@ -10,8 +10,7 @@ export const HomeScreen = () => {
       AppBar={
         <AppBar title="khan" background={colors.primary} titleColor="white" />
       }>
-      <Input title="asdad" />
-      <Input title="asdad" secureTextEntry />
+      <Text>ProfileScreen</Text>
     </Layout>
   );
 };

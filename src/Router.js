@@ -6,7 +6,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {navigationRef} from '@services';
 // import {CustomBottomNavbar} from '@components';
 
-import {SplashScreen, HomeScreen, ProfileScreen} from '@screens';
+import {SplashScreen, HomeScreen, ProfileScreen, LoremScreen} from '@screens';
 import Icon from 'react-native-vector-icons/Feather';
 import {colors} from '@helpers';
 const Tab = createBottomTabNavigator();
@@ -29,14 +29,14 @@ const DashboardScreen = () => {
       />
       <Tab.Screen
         name="assigment"
-        component={ProfileScreen}
+        component={LoremScreen}
         options={{
           tabBarIcon: e => <Icon name="file-text" size={20} color={e.color} />,
         }}
       />
       <Tab.Screen
         name="date"
-        component={ProfileScreen}
+        component={LoremScreen}
         options={{
           tabBarIcon: e => <Icon name="calendar" size={20} color={e.color} />,
         }}
