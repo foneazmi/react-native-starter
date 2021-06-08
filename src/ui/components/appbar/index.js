@@ -5,23 +5,32 @@ import {colors} from '@helpers';
 export const AppBar = props => (
   <SafeAreaView
     style={{
-      backgroundColor: props.style?.backgroundColor
+      backgroundColor: props.background
+        ? props.background
+        : props.style?.backgroundColor
         ? props.style?.backgroundColor
         : colors.background,
     }}>
     <StatusBar
       backgroundColor={
-        props.style?.backgroundColor
+        props.background
+          ? props.background
+          : props.style?.backgroundColor
           ? props.style?.backgroundColor
           : colors.background
       }
-      barStyle={props.dark ? 'light-content' : 'dark-content'}
+      barStyle={props.dark ? 'dark-content' : 'light-content'}
       showHideTransition="slide"
     />
     <View style={[styles.container, props.style]}>
       <View style={styles.menu}>{props.leftMenu && props.leftMenu}</View>
       {props.title && (
-        <Text numberOfLines={1} style={[{color: colors.text1}, styles.title]}>
+        <Text
+          numberOfLines={1}
+          style={[
+            {color: props.titleColor ? props.titleColor : colors.text1},
+            styles.title,
+          ]}>
           {props.title}
         </Text>
       )}

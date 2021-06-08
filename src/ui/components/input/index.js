@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {TextInput, View, Text, StyleSheet} from 'react-native';
+import {TextInput, View, Text, StyleSheet, Platform} from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 import {colors} from '@helpers';
 
@@ -7,43 +7,37 @@ export const Input = props => {
   const [show, setShow] = useState(false);
   const [focus, setFocus] = useState(false);
   return (
-    <View style={[{marginBottom: 16}, props.containerStyle]}>
+    <View style={[styles.container, props.containerStyle]}>
       {props.title && (
-        <Text style={[{marginBottom: 4}, props.titleStyle]}>{props.title}</Text>
+        <Text style={[styles.titleStyle, props.titleStyle]}>{props.title}</Text>
       )}
       <View
         style={[
-          {
-            flexDirection: 'row',
-            alignItems: 'center',
-            paddingHorizontal: 16,
-            borderRadius: 4,
-          },
+          styles.innerContainer,
           focus
             ? {
                 borderColor: colors.primary,
-                borderWidth: 1,
               }
             : {
-                borderColor: 'black',
-                borderWidth: 0.2,
+                borderColor: colors.secondary,
               },
           props.inputStyle,
         ]}>
-        {props.leftIcon && <Icon name={props.leftIcon} size={20} />}
+        {props.prefix && props.prefix}
         <TextInput
           onFocus={() => setFocus(true)}
           onBlur={() => setFocus(false)}
           secureTextEntry={!show && props.secureTextEntry}
-          style={{
-            flex: 1,
-            marginBottom: -3,
-          }}
+          style={[
+            styles.inputStyle,
+            Platform.OS === 'ios' && styles.iosInnerContainer,
+          ]}
           keyboardType={props.keyboardType}
           placeholder={props.placeholder}
           onChangeText={props.onChangeText}
           value={props.value}
         />
+        {props.suffix && props.suffix}
         {props.secureTextEntry && (
           <Icon
             name={show ? 'eye-off' : 'eye'}
@@ -58,14 +52,23 @@ export const Input = props => {
 
 export const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'white',
-    padding: 16,
-    flex: 1,
-    justifyContent: 'center',
+    marginBottom: 16,
   },
-  header: {
-    fontSize: 40,
-    textAlign: 'center',
-    marginBottom: 20,
+  titleStyle: {
+    marginBottom: 4,
+  },
+  innerContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 16,
+    borderWidth: 1,
+    borderRadius: 4,
+  },
+  iosInnerContainer: {
+    paddingVertical: 16,
+  },
+  inputStyle: {
+    flex: 1,
+    marginBottom: -3,
   },
 });
